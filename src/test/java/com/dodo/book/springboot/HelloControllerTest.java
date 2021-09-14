@@ -13,7 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.hamcrest.Matchers.is;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(controllers = HelloController.class)
+@WebMvcTest(controllers = HelloController.class) // controller test
 public class HelloControllerTest {
     @Autowired
     private MockMvc mvc;

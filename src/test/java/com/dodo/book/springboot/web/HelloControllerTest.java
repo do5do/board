@@ -1,4 +1,4 @@
-package com.dodo.book.springboot;
+package com.dodo.book.springboot.web;
 
 import com.dodo.book.springboot.web.HelloController;
 import org.junit.Test;

@@ -1,6 +1,5 @@
-package com.dodo.book.springboot.dto;
+package com.dodo.book.springboot.web.dto;
 
-import com.dodo.book.springboot.web.dto.HelloResponseDto;
 import org.junit.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;

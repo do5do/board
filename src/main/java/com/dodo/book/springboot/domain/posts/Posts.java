@@ -29,4 +29,10 @@ public class Posts { // 실제 DB의 테이블과 매칭될 클래스 -> Entity 
         this.content = content;
         this.author = author;
     }
+
+    // update method
+    public void update(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
 }

@@ -1,5 +1,6 @@
 package com.dodo.book.springboot.domain.posts;
 
+import com.dodo.book.springboot.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,11 +10,11 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor // 기본 생성자 자동 추가 (public Posts() {}와 같은 효과)
 @Entity // JPA의 어노테이션으로 테이블과 링크될 클래스임을 나타냄.
-public class Posts { // 실제 DB의 테이블과 매칭될 클래스 -> Entity 클래스
+public class Posts extends BaseTimeEntity { // 실제 DB의 테이블과 매칭될 클래스 -> Entity 클래스
     // JPA를 사용하면 DB 데이터에 작업할 경우 실제 쿼리를 날리기보다는, 이 Entity 클래스의 수정을 통해 작업한다.
     @Id // 해당 테이블의 PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // pk의 생성 규칙을 나타냄. GenerationType.IDENTITY 옵션을 추가해야 auto_increment가 된다.
-    private Long id; // 웬만하면 Entity의 PK는 Long타입의 Auto_increment를 추천한다.
+    private Long id; // 웬만하면 Entity의 PK는 Long타입의 Auto_increment를 추천한다. (null 판단을 위해)
 
     @Column(length = 500, nullable = false)
     private String title;

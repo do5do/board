@@ -1,5 +1,6 @@
 package com.dodo.book.springboot.web;
 
+import com.dodo.book.springboot.domain.user.Role;
 import com.dodo.book.springboot.web.HelloController;
 import org.junit.Test;
 import org.junit.runner.RunWith;

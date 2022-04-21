@@ -20,5 +20,5 @@ public abstract class BaseTimeEntity { // abstract class : 추상 클래스
     @LastModifiedDate // 조회한 Entity의 값을 변경할 때 시간이 자동 저장된다.
     private LocalDateTime modifiedDate;
 
-// java8 부터는 LocalDate와 LocalDateTime을 사용한다.(기존의 Date의 문제점을 제대로 고친 타입
+// java8 부터는 LocalDate와 LocalDateTime을 사용한다.(기존의 Date의 문제점을 제대로 고친 타입)
 }

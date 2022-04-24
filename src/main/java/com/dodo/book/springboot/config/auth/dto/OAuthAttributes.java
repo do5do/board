@@ -2,10 +2,15 @@ package com.dodo.book.springboot.config.auth.dto;
 
 import com.dodo.book.springboot.domain.user.Role;
 import com.dodo.book.springboot.domain.user.User;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JavaType;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Builder;
 import lombok.Getter;
+import net.bytebuddy.description.method.MethodDescription;
 
 import java.util.Map;
+
 @Getter
 public class OAuthAttributes {
     private Map<String, Object> attributes;
@@ -25,12 +30,28 @@ public class OAuthAttributes {
     }
 
     // OAuth2User에서 반환하는 사용자 정보는 map이기 때문에 값 하나하나를 변환해야만 한다.
-    public static OAuthAttributes of(String registrationId, String userNameAttributeName,
-                                     Map<String, Object> attributes) {
+    public static OAuthAttributes of(String registrationId, String userNameAttributeName, Map<String, Object> attributes) {
+        if ("naver".equals(registrationId)) {
+            return ofNaver("id", attributes); // userNameAttributeName을 naver는 지원하지 않음
+        }
         return ofGoogle(userNameAttributeName, attributes);
     }
 
+    private static OAuthAttributes ofNaver(String userNameAttributeName, Map<String, Object> attributes) {
+        Map<String, Object> response = (Map<String, Object>) attributes.get("response");
+        System.out.println("attributes : "+ attributes.get("response"));
+        assert response != null;
+        return OAuthAttributes.builder()
+                .name((String) response.get("name"))
+                .email((String) response.get("email"))
+                .picture((String) response.get("profile_image"))
+                .attributes(response)
+                .nameAttributeKey(userNameAttributeName)
+                .build();
+    }
+
     private static OAuthAttributes ofGoogle(String userNameAttributeName, Map<String, Object> attributes) {
+        System.out.println("attributes : "+ attributes);
         return OAuthAttributes.builder()
                 .name((String) attributes.get("name"))
                 .email((String) attributes.get("email"))

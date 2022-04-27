@@ -2,12 +2,8 @@ package com.dodo.book.springboot.config.auth.dto;
 
 import com.dodo.book.springboot.domain.user.Role;
 import com.dodo.book.springboot.domain.user.User;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JavaType;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Builder;
 import lombok.Getter;
-import net.bytebuddy.description.method.MethodDescription;
 
 import java.util.Map;
 

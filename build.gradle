@@ -28,6 +28,9 @@ dependencies {
     // session을 db에 저장
     implementation 'org.springframework.session:spring-session-jdbc'
     testImplementation 'org.springframework.security:spring-security-test'
+
+    annotationProcessor('org.projectlombok:lombok')
+    testAnnotationProcessor('org.projectlombok:lombok')
 }
 
 test {

@@ -20,6 +20,7 @@ public class ProfileContorller {
 
         List<String> realProfiles = Arrays.asList("real", "real1", "real2"); // real, real1, real2는 모두 배포에 사용될 profile이다.
         String defaultProfile = profiles.isEmpty() ? "default" : profiles.get(0);
+        // prifile이 없는 경우 "default"는 application.properties를 가져온다.
 
         return profiles.stream()
                 .filter(realProfiles::contains)

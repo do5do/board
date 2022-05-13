@@ -40,7 +40,7 @@ public class User extends BaseTimeEntity {
     public User update(String name, String picture) {
         this.name = name;
         this.picture = picture;
-        return this; // ??
+        return this; // 현재 객체의 인스턴스를 반환
     }
 
     public String getRoleKey() {
